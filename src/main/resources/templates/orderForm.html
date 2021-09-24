@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <title>麻辣烫</title>
+    <link rel="stylesheet" th:href="@{/styles.css}" />
+
+    <form method="POST" th:action="@{/logout}">
+      <input type="submit" value="退出登录" />
+    </form>
+
+  </head>
+  
+  <body>
+  
+    <form method="POST" th:action="@{/orders/processOrder}" th:object="${order}">
+      <h1>请下单</h1>
+      
+      <img th:src="@{/images/TacoCloud.png}"/>
+    	
+<!--      <h3>Your malatangs in this order:</h3>-->
+<!--      <a th:href="@{/design}" id="another">Design another malatang</a><br/>-->
+<!--      <ul>-->
+<!--        <li th:each="malatang : ${order.malatangs}"><span th:text="${malatang.name}">malatang name</span></li>-->
+<!--      </ul>-->
+      
+      <div th:if="${#fields.hasErrors()}">
+        <span class="validationError">
+        更正下面的问题并重新提交。
+        </span>
+      </div>
+      
+      <h3>请填写下单所需的详细信息：</h3>
+      <label for="name">姓名: </label>
+      <input type="text" th:field="*{name}"/>
+      <span class="validationError"
+            th:if="${#fields.hasErrors('name')}"
+            th:errors="*{name}">姓名字数不合规</span>
+      <br/>
+      
+      <label for="phone">电话: </label>
+      <input type="text" th:field="*{phone}"/>
+      <span class="validationError"
+            th:if="${#fields.hasErrors('phone')}"
+            th:errors="*{phone}">电话错误</span>
+      <br/>
+      
+      <label for="address">地址: </label>
+      <input type="text" th:field="*{address}"/>
+      <span class="validationError"
+            th:if="${#fields.hasErrors('address')}"
+            th:errors="*{address}">地址错误</span>
+      <br/>
+
+      <input type="submit" value="提交"/>
+    </form>
+  
+  </body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <title>麻辣烫</title>
+    <link rel="stylesheet" th:href="@{/styles.css}" />
+
+    <form method="POST" th:action="@{/logout}">
+        <input type="submit" value="退出登录" />
+    </form>
+
+  </head>
+  
+  <body>
+    <h1>给你的麻辣烫挑选配料!</h1>
+    <img th:src="@{/images/TacoCloud.png}"/>
+        
+    <form method="POST" th:action="@{/design}" th:object="${malatang}">
+
+    <span class="validationError"
+          th:if="${#fields.hasErrors('ingredients')}" 
+          th:errors="*{ingredients}">配料数量至少三种</span>
+
+    <div class="grid">
+      <div class="ingredient-group" id="group">
+      <h3>挑选你的配料:</h3>
+      <div th:each="ingredient : ${design}">
+<!--        th:value="${ingredient.id-->
+        <input name="ingredients" type="checkbox" th:value="${ingredient.id}" />
+        <span th:text="${ingredient.name}">配料</span><br/>
+        <br/>
+      </div>
+      </div>
+    </div>
+      
+      <div>
+      <button>提交选择的配料</button>
+      </div>
+
+    </form>
+  </body>
+</html>

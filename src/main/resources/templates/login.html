@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>麻辣烫</title>
+</head>
+
+<body>
+    <h1>登陆</h1>
+    <img th:src="@{/images/TacoCloud.png}"/>
+
+
+<!--    <div th:if="${#fields.hasErrors()}">-->
+<!--&lt;!&ndash;        ${error}&ndash;&gt;-->
+<!--        无法登陆，请确定用户名和密码-->
+<!--    </div>-->
+
+    <p>
+        新来？点击<a th:href="@{/register}">这里</a>
+    </p>
+
+    <form method="POST" th:action="@{/login}" id="loginForm">
+        <label for="username">姓名: </label>
+        <input type="text" name="username" id="username"/><br/>
+
+        <label for="password">密码: </label>
+        <input type="password" name="password" id="password"/><br/>
+
+        <input type="submit" value="登录"/>
+    </form>
+
+</body>
+</html>

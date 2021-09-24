@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>麻辣烫</title>
+    <link rel="stylesheet" th:href="@{/styles.css}" />
+</head>
+
+<body>
+    <h1>注册</h1>
+    <img th:src="@{/images/TacoCloud.png}"/>
+    <form method="POST" th:action="@{/register}" id="registerForm">
+
+
+        <label for="username">姓名: </label>
+        <input type="text" name="username"/><br/>
+
+        <label for="password">密码: </label>
+        <input type="password" name="password"/><br/>
+
+        <label for="confirm">验证密码: </label>
+        <input type="password" name="confirm"/><br/>
+
+        <label for="email">邮件: </label>
+        <input type="text" name="email"/><br/>
+
+        <input type="submit" value="注册"/>
+    </form>
+
+</body>
+</html>

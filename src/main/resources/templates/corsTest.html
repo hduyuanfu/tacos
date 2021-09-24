@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<!--<link type="test/css" href="css/style.css" rel="stylesheet">-->
+
+<body>
+
+<input type="text" style="width:600px;height:30px;font-size:14px;" id="urlText" value="" />
+<br>
+<input type="button" style="margin: 10px";  id="cors" value="判断是否可访问"/>
+
+<p>http://localhost:9090/zlflovemm/</p>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script type="text/javascript">
+    $(function(){
+        $("#cors").click(
+            function(){
+                var url2 = $("#urlText").val();
+                $.post({
+                    contentType:'application/x-www-form-urlencoded;charset=UTF-8',
+                    url:url2,
+                    data: "/rAIeKeSBG1LV+XoIq82/O",
+                    success:function(data){
+                        alert("success");
+                    }
+                })
+            });
+    });
+</script>
+</body>
+</html>
